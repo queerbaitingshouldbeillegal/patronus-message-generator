@@ -14,20 +14,68 @@
     --glow1: #cdefff;
     --glow2: #8fd6ff;
     --glow3: #5cb8ff;
-    --harry-accent: #7fd6a0;
-    --draco-accent: #b9a3ff;
+    --harry-accent: #e35d5d;
+    --harry-accent-glow: rgba(227,93,93,0.2);
+    --draco-accent: #7fd6a0;
+    --draco-accent-glow: rgba(127,214,160,0.2);
     --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+    --bg-grad-1: #131b33;
+    --bg-grad-2: #080a14;
+    --code-bg: #05070f;
+    --code-text: #b8c4e0;
+    --workskin-text: #cfd8ec;
+    --preview-shell-bg: #0d1220;
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f1ea;
+    --panel: #fffdf8;
+    --panel-2: #f0ece1;
+    --border: #ddd4c2;
+    --text: #2b2620;
+    --dim: #7a7263;
+    --glow1: #3f6f8f;
+    --glow2: #2f7fb3;
+    --glow3: #1f6fa8;
+    --harry-accent: #b23b3b;
+    --harry-accent-glow: rgba(178,59,59,0.15);
+    --draco-accent: #3f8f63;
+    --draco-accent-glow: rgba(63,143,99,0.15);
+
+    --bg-grad-1: #efe9dc;
+    --bg-grad-2: #f8f5ee;
+    --code-bg: #ece6d8;
+    --code-text: #3a3428;
+    --workskin-text: #2b2620;
+    --preview-shell-bg: #fbf9f3;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    background: radial-gradient(ellipse at top, #131b33 0%, #080a14 60%);
+    background: radial-gradient(ellipse at top, var(--bg-grad-1) 0%, var(--bg-grad-2) 60%);
     color: var(--text);
     font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
     padding: 32px 20px 60px;
+    transition: background 0.2s, color 0.2s;
   }
   .wrap { max-width: 1080px; margin: 0 auto; }
-  header { text-align: center; margin-bottom: 28px; }
+  header { text-align: center; margin-bottom: 28px; position: relative; }
+  .theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: Georgia, serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--dim);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { color: var(--text); border-color: var(--glow3); }
   header h1 {
     font-family: Georgia, serif;
     font-weight: 400;
@@ -114,8 +162,8 @@
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .sender-toggle input { display: none; }
-  .sender-toggle label.opt.harry.active { border-color: var(--harry-accent); box-shadow: 0 0 0 2px rgba(127,214,160,0.2); }
-  .sender-toggle label.opt.draco.active { border-color: var(--draco-accent); box-shadow: 0 0 0 2px rgba(185,163,255,0.2); }
+  .sender-toggle label.opt.harry.active { border-color: var(--harry-accent); box-shadow: 0 0 0 2px var(--harry-accent-glow); }
+  .sender-toggle label.opt.draco.active { border-color: var(--draco-accent); box-shadow: 0 0 0 2px var(--draco-accent-glow); }
   .sender-toggle img { width: 22px; height: 22px; object-fit: contain; opacity: 0.9; }
 
   .custom-fields { display: none; margin-top: 4px; }
@@ -162,9 +210,9 @@
     cursor: pointer;
   }
   .copy-btn:hover { color: var(--text); border-color: var(--glow3); }
-  .copy-btn.copied { color: var(--harry-accent); border-color: var(--harry-accent); }
+  .copy-btn.copied { color: var(--draco-accent); border-color: var(--draco-accent); }
   pre.code-out {
-    background: #05070f;
+    background: var(--code-bg);
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 12px;
@@ -175,7 +223,7 @@
     overflow: auto;
     white-space: pre-wrap;
     word-break: break-word;
-    color: #b8c4e0;
+    color: var(--code-text);
     margin: 0;
   }
 
@@ -188,7 +236,7 @@
 
   /* ---- preview, using the real workskin CSS ---- */
   .preview-panel { grid-column: 1 / -1; }
-  #workskin { font-family: Georgia, serif; font-size: 1rem; line-height: 1.6; color: #cfd8ec; }
+  #workskin { font-family: Georgia, serif; font-size: 1rem; line-height: 1.6; color: var(--workskin-text); }
   #workskin p { margin: 0 0 1em; }
 
   #workskin .patronus-block { display: block; margin: 0 0 1em 0; }
@@ -212,10 +260,11 @@
   /* delays injected dynamically for preview, id'd per-instance */
 
   .preview-shell {
-    background: #0d1220;
+    background: var(--preview-shell-bg);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 24px 26px;
+    transition: background 0.2s;
   }
   .preview-hint { font-size: 0.75rem; color: var(--dim); margin-bottom: 14px; }
 </style>
@@ -223,6 +272,7 @@
 <body>
 <div class="wrap">
   <header>
+    <button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button>
     <h1>Patronus Workskin Generator</h1>
     <p>Fill in the scene, pick a sender, get pasteable AO3 HTML — plus a one-time CSS block sized for any message length.</p>
   </header>
@@ -307,11 +357,11 @@
     </div>
     <div class="panel">
       <div class="out-head">
-        <span>CSS — paste once into your workskin (covers up to 150 characters)</span>
+        <span id="css-out-label">CSS — paste alongside this patronus's HTML</span>
         <button class="copy-btn" data-target="css-out">Copy</button>
       </div>
       <pre class="code-out" id="css-out"></pre>
-      <p class="note">This replaces your current <code>.typeit :nth-child(n)</code> rules — it's the same pattern, just extended from 14 up to 150 so no future message gets cut off. Paste it once; you don't need to regenerate it per-patronus.</p>
+      <p class="note">Sized exactly to this message's character count, so timing lines up with no wasted or missing rules. If you change the message, regenerate and re-paste this block — unlike a fixed-length version, it won't automatically cover a longer message typed in later.</p>
     </div>
   </div>
 </div>
@@ -321,6 +371,18 @@ const senders = {
   harry: { img: "https://file.garden/aRDUU13e0mSzyMx7/ao3/hjp.png", alt: "Patronus: Stag", pronoun: "his" },
   draco: { img: "https://file.garden/aRDUU13e0mSzyMx7/ao3/dlm.png", alt: "Patronus: Dragon", pronoun: "his" }
 };
+
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  if (isLight) {
+    document.documentElement.removeAttribute('data-theme');
+    themeToggle.textContent = '☾ Dark';
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeToggle.textContent = '☀ Light';
+  }
+});
 
 const radios = document.querySelectorAll('input[name="sender"]');
 const customFields = document.getElementById('custom-fields');
@@ -392,10 +454,10 @@ function generate() {
 
   document.getElementById('html-out').textContent = html;
 
-  // CSS covering up to 150 characters
+  // CSS sized exactly to this message's character count
   const start = parseFloat(document.getElementById('delay-start').value) || 1.75;
   const step = parseFloat(document.getElementById('delay-step').value) || 0.25;
-  const MAX = 150;
+  const MAX = Math.max([...message].length, 1);
   let cssLines = [];
   for (let i = 1; i <= MAX; i++) {
     const delay = (start + (i - 1) * step).toFixed(2);
@@ -403,6 +465,7 @@ function generate() {
   }
   const css = cssLines.join('\n');
   document.getElementById('css-out').textContent = css;
+  document.getElementById('css-out-label').textContent = `CSS — sized to this message (${MAX} character${MAX === 1 ? '' : 's'})`;
 
   // live preview: inject a fresh style block scoped by a unique class, plus the block itself
   let styleEl = document.getElementById('preview-dynamic-style');
