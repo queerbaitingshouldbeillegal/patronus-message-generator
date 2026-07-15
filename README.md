@@ -21,3 +21,5 @@ There's also a live preview at the bottom of the page so you can click the trigg
 
 - **Timing**: the "delay starts at" and "step" fields control how fast the message types out. Larger step = slower typing.
 - **New characters**: pick "Custom" as the sender, then supply your own image URL and alt text. The image needs to be hosted somewhere externally (file.garden, Imgur, etc.).
+
+---
