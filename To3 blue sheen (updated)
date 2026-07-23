@@ -1,0 +1,337 @@
+body {
+  background: #eef8fc;
+}
+
+#header {
+  background: linear-gradient(180deg, #e3f6fd 0%, #c3e9f7 100%);
+  border-bottom: 1px solid #9fd6ec;
+}
+
+#header .primary.navigation,
+#header ul.navigation {
+  background: linear-gradient(180deg, #3aa3d0 0%, #1e6f96 100%);
+  border-color: #17587a;
+}
+
+#header ul.navigation a,
+#header .primary.navigation a {
+  color: #ffffff;
+}
+
+#header ul.navigation a:hover,
+#header .primary.navigation a:hover {
+  background: #17587a;
+  color: #ffffff;
+}
+
+#header .dropdown ul,
+#header .primary .dropdown ul {
+  background: #eef8fc;
+  border-color: #9fd6ec;
+}
+
+#header .dropdown ul a {
+  color: #17587a;
+}
+
+#header .dropdown ul a:hover {
+  background: #c3e9f7;
+}
+
+#header input[type="text"],
+#header input[type="search"] {
+  border: 1px solid #17587a;
+}
+
+#header input[type="submit"] {
+  background: #17587a;
+  color: #ffffff;
+  border-color: #0f3f57;
+}
+
+#footer {
+  background: linear-gradient(180deg, #1e6f96 0%, #17587a 100%);
+  border-top: 1px solid #9fd6ec;
+  color: #e3f6fd;
+}
+
+#footer h3,
+#footer h4,
+#footer .heading,
+#footer a,
+#footer a:visited {
+  color: #e3f6fd;
+}
+
+#footer a:hover {
+  color: #ffffff;
+}
+
+#main {
+  background: #f4fbfe;
+  border: 1px solid #bfe4f4;
+  box-shadow: 0 0 20px rgba(140, 205, 240, 0.25);
+}
+
+table,
+th,
+td {
+  border-color: #bfe4f4;
+}
+
+thead td,
+th {
+  background: #e3f6fd;
+  color: #17587a;
+}
+
+tbody tr:nth-child(odd) {
+  background: #f4fbfd;
+}
+
+a,
+a:link {
+  color: #1e6f96;
+}
+
+a:visited {
+  color: #17587a;
+}
+
+a:hover,
+a:focus {
+  color: #3aa3d0;
+}
+
+.tags a.tag,
+a.tag {
+  background: #e3f6fd;
+  color: #17587a;
+  border-color: #9fd6ec;
+}
+
+.current,
+a.current,
+.current a,
+.current a:visited {
+  background: #1e6f96;
+  color: #ffffff;
+  border-color: #17587a;
+}
+
+#header h1.heading a {
+  display: flex;
+  align-items: flex-end;
+}
+
+#header h1.heading a img.logo {
+  content: url("https://i.imgur.com/yMZv56e.png");
+  width: auto;
+  height: 34px;
+}
+
+#header h1.heading a span {
+  display: none;
+}
+
+#header h1.heading a::after {
+  content: "Tales of Our Own";
+  display: inline-block;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.75rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-left: 8px;
+  color: #17587a;
+}
+
+h2.heading,
+h3.heading,
+h2,
+h3 {
+  color: #17587a;
+}
+
+table tr:hover,
+table tr:hover td,
+table tr:hover th,
+.listbox li:hover,
+ul.index li:hover,
+ol.index li:hover,
+li.blurb:hover {
+  background: #d7f0fb;
+  color: #17587a;
+}
+
+table tr:hover a,
+.listbox li:hover a,
+ul.index li:hover a,
+ol.index li:hover a,
+li.blurb:hover a {
+  color: #17587a;
+}
+
+.splash .module h3,
+.splash .module h3.heading {
+  color: #17587a;
+}
+
+.splash .favorite li a,
+.splash .browse li a {
+  background: #f4fbfe;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a,
+.splash .browse li:nth-of-type(2n+1) a {
+  background: #e3f6fd;
+}
+
+.splash .favorite li a:hover,
+.splash .browse li a:hover {
+  background: #17587a;
+  color: #ffffff;
+}
+
+.splash .favorite li:nth-of-type(2n+1) a:hover,
+.splash .browse li:nth-of-type(2n+1) a:hover {
+  background: #17587a !important;
+  color: #ffffff !important;
+}
+
+#header .dropdown ul li a:hover,
+#header .dropdown li a:hover,
+#header ul.dropdown li a:hover,
+#header .user.dropdown li a:hover {
+  background: #c3e9f7 !important;
+  color: #17587a !important;
+}
+
+a.tag:hover,
+.tags a.tag:hover {
+  background: #17587a !important;
+  color: #ffffff !important;
+  border-color: #0f3f57 !important;
+}
+
+.actions input[type="submit"]:hover,
+.actions button:hover,
+input[type="submit"]:hover,
+button:hover {
+  background: #17587a !important;
+  color: #ffffff !important;
+  border-color: #0f3f57 !important;
+}
+
+.blurb .header a:link,
+.blurb .header a,
+li.blurb .header a:link,
+li.blurb .header a,
+.work.blurb .header a:link,
+.work.blurb .header a {
+  color: #1e6f96 !important;
+}
+
+.blurb .header a:visited,
+li.blurb .header a:visited,
+.work.blurb .header a:visited {
+  color: #7a94a3 !important;
+}
+
+#dashboard.own {
+  border-top: 15px solid #17587a !important;
+  border-bottom: 15px solid #17587a !important;
+}
+
+.blurb .header a.tag:hover,
+li.blurb .header a.tag:hover {
+  color: #ffffff !important;
+  background: #17587a !important;
+  border-color: #0f3f57 !important;
+}
+
+#dashboard .actions li a:hover,
+.actions li a:hover {
+  background: #17587a !important;
+  color: #ffffff !important;
+  border-color: #0f3f57 !important;
+}
+
+.listbox,
+fieldset,
+fieldset.listbox {
+  background: #eef8fc !important;
+  border: 2px solid #9fd6ec !important;
+  box-shadow: 0 0 1px #ffffff !important;
+}
+
+.listbox h3.heading,
+fieldset h3.heading,
+.heading {
+  background: #e3f6fd !important;
+  color: #17587a !important;
+  border-color: #9fd6ec !important;
+}
+
+.actions input[type="submit"],
+.actions button,
+input[type="submit"],
+button {
+  background: #e3f6fd !important;
+  color: #17587a !important;
+  border: 1px solid #9fd6ec !important;
+}
+
+p.kudos {
+  background: none !important;
+  position: relative;
+  padding-left: 100px;
+  min-height: 80px;
+  font-weight: bold;
+  color: #4a2e3f !important;
+}
+
+p.kudos::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  background: url("https://i.imgur.com/fRZjBbT.png") no-repeat center center;
+  background-size: contain;
+  filter: drop-shadow(0 0 6px #9fd6ec);
+}
+
+p.kudos,
+p.kudos a,
+p.kudos span {
+  color: #0A3D61 !important;
+  text-shadow: none !important;
+}
+
+form.new_comment fieldset {
+  background-image: url("https://i.imgur.com/4J2LgZm.jpeg") !important;
+  background-repeat: repeat !important;
+  background-position: top left !important;
+  background-size: 380px !important;
+  background-color: transparent !important;
+  color: #0A3D61 !important;
+  border: 1px solid #9fd6ec !important;
+  box-shadow: none !important;
+  text-shadow: 0 0 3px #ffffff;
+}
+
+.toggled form,
+.dynamic form {
+  padding: .5em !important;
+  border: 1px solid #9fd6ec !important;
+  background-image: url("https://i.imgur.com/4J2LgZm.jpeg") !important;
+  background-repeat: repeat !important;
+  background-position: top left !important;
+  background-size: 380px !important;
+  background-color: transparent !important;
+  color: #0A3D61 !important;
+  box-shadow: none !important;
+  text-shadow: 0 0 3px #ffffff;
+}
